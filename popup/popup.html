@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revonet HD Downloader</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-row">
+        <div>
+          <h1>Revonet HD</h1>
+          <p class="subtitle">Image Downloader</p>
+        </div>
+        <button id="settings-btn" class="btn btn-icon" title="Impostazioni">
+          &#x2699;
+        </button>
+      </div>
+    </header>
+
+    <!-- Pannello Impostazioni -->
+    <div id="settings-panel" class="hidden">
+      <div class="settings-header">
+        <h2>Impostazioni</h2>
+        <button id="close-settings" class="btn-close">&times;</button>
+      </div>
+
+      <div class="settings-content">
+        <div class="setting-group">
+          <label for="deepseek-api-key">DeepSeek API Key</label>
+          <input type="password" id="deepseek-api-key" placeholder="Inserisci API key...">
+          <p class="setting-hint">Necessaria per tradurre le descrizioni in altre lingue</p>
+        </div>
+
+        <div class="setting-group">
+          <label>Lingue descrizione</label>
+          <p class="setting-hint">Seleziona le lingue in cui generare i file TXT</p>
+          <div class="language-options">
+            <label class="checkbox-option compact">
+              <input type="checkbox" name="lang" value="it" checked disabled>
+              <span>Italiano (IT) - Originale</span>
+            </label>
+            <label class="checkbox-option compact">
+              <input type="checkbox" name="lang" value="en" id="lang-en">
+              <span>English (EN)</span>
+            </label>
+            <label class="checkbox-option compact">
+              <input type="checkbox" name="lang" value="de" id="lang-de">
+              <span>Deutsch (DE)</span>
+            </label>
+            <label class="checkbox-option compact">
+              <input type="checkbox" name="lang" value="fr" id="lang-fr">
+              <span>Fran&ccedil;ais (FR)</span>
+            </label>
+            <label class="checkbox-option compact">
+              <input type="checkbox" name="lang" value="es" id="lang-es">
+              <span>Espa&ntilde;ol (ES)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <label for="server-url">Server elaborazione immagini</label>
+          <input type="text" id="server-url" placeholder="http://localhost:5000">
+          <p class="setting-hint">URL del server YOLO per rimuovere banner e cornici</p>
+        </div>
+
+        <label class="checkbox-option compact">
+          <input type="checkbox" id="enable-processing">
+          <span>Elabora immagini (rimuovi banner/cornici)</span>
+        </label>
+
+        <button id="save-settings" class="btn btn-primary btn-large">
+          Salva impostazioni
+        </button>
+      </div>
+    </div>
+
+    <div id="not-supported" class="message hidden">
+      <p>Questa estensione funziona su dorotheum.com e tipcars.com</p>
+    </div>
+
+    <div id="loading" class="message">
+      <p>Analisi pagina in corso...</p>
+      <div class="spinner"></div>
+    </div>
+
+    <div id="no-content" class="message hidden">
+      <p>Nessun lotto o immagine trovata in questa pagina.</p>
+    </div>
+
+    <!-- Vista Lista Lotti -->
+    <div id="lots-container" class="hidden">
+      <div class="view-header">
+        <span id="lots-count">0 veicoli trovati</span>
+        <button id="refresh-lots" class="btn btn-small btn-icon" title="Aggiorna lista">
+          &#x21bb;
+        </button>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Cerca per lotto o testo..." autocomplete="off">
+        <button id="clear-search" class="btn-clear" title="Cancella ricerca">&times;</button>
+      </div>
+
+      <div class="toolbar">
+        <button id="select-all-lots" class="btn btn-secondary">Seleziona tutti</button>
+        <button id="download-selected-lots" class="btn btn-primary" disabled>
+          Scarica selezionati
+        </button>
+      </div>
+
+      <label class="checkbox-option">
+        <input type="checkbox" id="include-description" checked>
+        <span>Includi descrizione (file .txt)</span>
+      </label>
+
+      <div id="lots-grid"></div>
+
+      <p class="hint" id="search-hint">Usa la ricerca per filtrare. Es: "BMW", "lotto 12", "125-130"</p>
+    </div>
+
+    <!-- Vista Immagini (singolo lotto) -->
+    <div id="images-container" class="hidden">
+      <div class="view-header">
+        <span id="image-count">0 immagini trovate</span>
+        <button id="back-btn" class="btn btn-small btn-secondary hidden">
+          ← Torna alla lista
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <button id="select-all" class="btn btn-secondary">Seleziona tutte</button>
+        <button id="download-selected" class="btn btn-primary" disabled>
+          Scarica selezionate
+        </button>
+      </div>
+
+      <div id="images-grid"></div>
+
+      <label class="checkbox-option">
+        <input type="checkbox" id="include-description-single" checked>
+        <span>Includi descrizione (file .txt)</span>
+      </label>
+
+      <div class="actions">
+        <button id="download-all" class="btn btn-primary btn-large">
+          Scarica tutte le immagini HD
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress overlay -->
+    <div id="progress-overlay" class="hidden">
+      <div class="progress-content">
+        <p id="progress-text">Recupero immagini...</p>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress"></div>
+        </div>
+        <p id="progress-detail"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

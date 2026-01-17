@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Revonet HD Downloader",
+  "version": "2.0.0",
+  "description": "Scarica immagini HD da Dorotheum e Tipcars con supporto elaborazione YOLO",
+
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "*://*.dorotheum.com/*",
+    "*://*.dorotheum.at/*",
+    "*://*.tipcars.com/*"
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png"
+    }
+  },
+
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.dorotheum.com/*",
+        "*://*.dorotheum.at/*",
+        "*://*.tipcars.com/*"
+      ],
+      "js": ["scripts/content.js"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/jszip.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
