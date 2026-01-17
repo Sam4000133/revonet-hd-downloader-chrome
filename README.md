@@ -1,133 +1,133 @@
-# Revonet HD Downloader - Chrome Extension
+# Revonet HD Downloader - Estensione Chrome
 
-A powerful Chrome extension for downloading high-definition images from Dorotheum and Tipcars vehicle auction websites. Features automatic German-to-Italian translation, AI-powered vehicle descriptions, and optional YOLO server integration for image processing.
+Un'estensione Chrome potente per scaricare immagini in alta definizione dai siti di aste veicoli Dorotheum e Tipcars. Include traduzione automatica tedesco-italiano, descrizioni AI dei veicoli e integrazione opzionale con server YOLO per l'elaborazione delle immagini.
 
-## Features
+## Funzionalità
 
-### Core Functionality
-- **HD Image Download**: Automatically extracts and downloads high-resolution vehicle images
-- **Batch Download**: Download all images from a single vehicle page as a ZIP file
-- **Multi-Vehicle Support**: Select and download images from multiple vehicles at once from auction list pages
-- **Smart Folder Organization**: Creates organized folders for each vehicle when downloading multiple lots
+### Funzionalità Principali
+- **Download Immagini HD**: Estrae e scarica automaticamente immagini ad alta risoluzione dei veicoli
+- **Download in Batch**: Scarica tutte le immagini da una singola pagina veicolo come file ZIP
+- **Supporto Multi-Veicolo**: Seleziona e scarica immagini da più veicoli contemporaneamente dalle pagine lista aste
+- **Organizzazione Intelligente**: Crea cartelle organizzate per ogni veicolo quando si scaricano più lotti
 
-### AI-Powered Translation (DeepSeek API)
-- **Vehicle Name Translation**: Automatically translates German vehicle terms to Italian
+### Traduzione AI (API DeepSeek)
+- **Traduzione Nome Veicolo**: Traduce automaticamente i termini tedeschi in italiano
   - Kasten → Furgone
   - Maxi-Kasten → Furgone Maxi
   - LKW → Camion
   - PKW → Auto
   - Kombi → Station Wagon
-  - And many more...
-- **Description Generation**: Creates persuasive, professional vehicle descriptions in multiple languages
-- **Multi-Language Support**: Generate descriptions in Italian, English, German, French, and Spanish
+  - E molti altri...
+- **Generazione Descrizioni**: Crea descrizioni professionali e persuasive in più lingue
+- **Supporto Multi-Lingua**: Genera descrizioni in italiano, inglese, tedesco, francese e spagnolo
 
-### Image Processing (Optional)
-- **YOLO Server Integration**: Connect to a YOLO-powered server for automatic image processing
-- **Banner/Border Removal**: Automatically crops images to focus on the vehicle, removing watermarks and borders
+### Elaborazione Immagini (Opzionale)
+- **Integrazione Server YOLO**: Connessione a un server YOLO per l'elaborazione automatica delle immagini
+- **Rimozione Banner/Cornici**: Ritaglia automaticamente le immagini per focalizzarsi sul veicolo, rimuovendo watermark e bordi
 
-### User Interface
-- **Real-Time Progress Bar**: Visual feedback during download with detailed status messages
-- **Search & Filter**: Quickly find vehicles in large auction lists
-- **Thumbnail Preview**: Visual preview of all available images before download
-- **Settings Panel**: Easy configuration of API keys and preferences
+### Interfaccia Utente
+- **Barra di Progresso in Tempo Reale**: Feedback visivo durante il download con messaggi di stato dettagliati
+- **Ricerca e Filtro**: Trova rapidamente i veicoli nelle liste aste lunghe
+- **Anteprima Miniature**: Anteprima visiva di tutte le immagini disponibili prima del download
+- **Pannello Impostazioni**: Configurazione facile di chiavi API e preferenze
 
-## Supported Websites
+## Siti Web Supportati
 
-- `dorotheum.com` - Austrian auction house
-- `dorotheum.at` - Austrian auction house (alternate domain)
-- `tipcars.com` - Vehicle marketplace
+- `dorotheum.com` - Casa d'aste austriaca
+- `dorotheum.at` - Casa d'aste austriaca (dominio alternativo)
+- `tipcars.com` - Marketplace veicoli
 
-## Installation
+## Installazione
 
-### Method 1: Load Unpacked (Development)
-1. Download or clone this repository
-2. Open Chrome and navigate to `chrome://extensions`
-3. Enable **"Developer mode"** (toggle in top right corner)
-4. Click **"Load unpacked"**
-5. Select the `dorotheum-hd-downloader-chrome` folder
+### Metodo 1: Carica Estensione Non Pacchettizzata (Sviluppo)
+1. Scarica o clona questo repository
+2. Apri Chrome e vai a `chrome://extensions`
+3. Abilita la **"Modalità sviluppatore"** (toggle in alto a destra)
+4. Clicca **"Carica estensione non pacchettizzata"**
+5. Seleziona la cartella `dorotheum-hd-downloader-chrome`
 
-### Method 2: CRX File
-1. Download the `.crx` file from releases
-2. Open Chrome and navigate to `chrome://extensions`
-3. Enable **"Developer mode"**
-4. Drag and drop the `.crx` file onto the page
+### Metodo 2: File CRX
+1. Scarica il file `.crx` dalle release
+2. Apri Chrome e vai a `chrome://extensions`
+3. Abilita la **"Modalità sviluppatore"**
+4. Trascina e rilascia il file `.crx` sulla pagina
 
-## Configuration
+## Configurazione
 
-### DeepSeek API Key (Required for translations)
-1. Get an API key from [DeepSeek](https://platform.deepseek.com/)
-2. Click the extension icon to open the popup
-3. Click the **Settings** (gear) icon
-4. Enter your DeepSeek API key
-5. Select desired output languages
-6. Click **Save**
+### Chiave API DeepSeek (Necessaria per le traduzioni)
+1. Ottieni una chiave API da [DeepSeek](https://platform.deepseek.com/)
+2. Clicca sull'icona dell'estensione per aprire il popup
+3. Clicca l'icona **Impostazioni** (ingranaggio)
+4. Inserisci la tua chiave API DeepSeek
+5. Seleziona le lingue di output desiderate
+6. Clicca **Salva**
 
-### YOLO Server (Optional)
-If you have a YOLO server for image processing:
-1. Open Settings
-2. Enter the server URL (e.g., `https://yolo.example.com`)
-3. Enable **"Process images"** checkbox
-4. Click **Save**
+### Server YOLO (Opzionale)
+Se hai un server YOLO per l'elaborazione delle immagini:
+1. Apri le Impostazioni
+2. Inserisci l'URL del server (es. `http://localhost:5000`)
+3. Abilita la checkbox **"Elabora immagini"**
+4. Clicca **Salva**
 
-## Usage
+## Utilizzo
 
-### Single Vehicle Page
-1. Navigate to a vehicle detail page on Dorotheum or Tipcars
-2. Click the extension icon
-3. View all available HD images
-4. Select specific images or click **"Download all as ZIP"**
-5. Optionally enable **"Include description"** for AI-generated descriptions
+### Pagina Singolo Veicolo
+1. Naviga a una pagina dettaglio veicolo su Dorotheum o Tipcars
+2. Clicca sull'icona dell'estensione
+3. Visualizza tutte le immagini HD disponibili
+4. Seleziona immagini specifiche o clicca **"Scarica tutto come ZIP"**
+5. Opzionalmente abilita **"Includi descrizione"** per le descrizioni generate dall'AI
 
-### Auction List Page
-1. Navigate to an auction list page
-2. Click the extension icon
-3. Use the search box to filter vehicles
-4. Select vehicles by clicking on them
-5. Click **"Download X vehicles"**
-6. Images will be organized in folders by vehicle name
+### Pagina Lista Aste
+1. Naviga a una pagina lista aste
+2. Clicca sull'icona dell'estensione
+3. Usa la casella di ricerca per filtrare i veicoli
+4. Seleziona i veicoli cliccandoci sopra
+5. Clicca **"Scarica X veicoli"**
+6. Le immagini saranno organizzate in cartelle per nome veicolo
 
-## Technical Details
+## Dettagli Tecnici
 
-### Manifest Version
-- Chrome Manifest V3 compliant
-- Uses Service Worker for background processing
+### Versione Manifest
+- Conforme a Chrome Manifest V3
+- Usa Service Worker per l'elaborazione in background
 
-### Permissions
-- `activeTab`: Access current tab content
-- `downloads`: Save files to disk
-- `storage`: Store user preferences
+### Permessi
+- `activeTab`: Accesso al contenuto della scheda corrente
+- `downloads`: Salvataggio file su disco
+- `storage`: Memorizzazione preferenze utente
 
-### Host Permissions
+### Permessi Host
 - `*://*.dorotheum.com/*`
 - `*://*.dorotheum.at/*`
 - `*://*.tipcars.com/*`
 
-### Dependencies
-- [JSZip](https://stuk.github.io/jszip/) - ZIP file generation
+### Dipendenze
+- [JSZip](https://stuk.github.io/jszip/) - Generazione file ZIP
 
-## File Structure
+## Struttura File
 
 ```
 dorotheum-hd-downloader-chrome/
-├── manifest.json          # Extension manifest (MV3)
+├── manifest.json          # Manifest estensione (MV3)
 ├── popup/
-│   ├── popup.html         # Extension popup UI
-│   ├── popup.js           # Popup logic and API calls
-│   └── popup.css          # Popup styles
+│   ├── popup.html         # UI popup estensione
+│   ├── popup.js           # Logica popup e chiamate API
+│   └── popup.css          # Stili popup
 ├── scripts/
-│   ├── background.js      # Service worker for downloads
-│   └── content.js         # Page content extraction
+│   ├── background.js      # Service worker per download
+│   └── content.js         # Estrazione contenuto pagina
 ├── lib/
-│   └── jszip.min.js       # ZIP library
+│   └── jszip.min.js       # Libreria ZIP
 └── icons/
-    ├── icon-48.png        # Extension icon (48x48)
-    └── icon-96.png        # Extension icon (96x96)
+    ├── icon-48.png        # Icona estensione (48x48)
+    └── icon-96.png        # Icona estensione (96x96)
 ```
 
-## German to Italian Translation Reference
+## Riferimento Traduzioni Tedesco-Italiano
 
-| German | Italian |
-|--------|---------|
+| Tedesco | Italiano |
+|---------|----------|
 | Kasten | Furgone |
 | Maxi-Kasten | Furgone Maxi |
 | Hochdach-Kasten | Furgone Tetto Alto |
@@ -144,49 +144,49 @@ dorotheum-hd-downloader-chrome/
 | Anhänger | Rimorchio |
 | Limousine | Berlina |
 
-## Troubleshooting
+## Risoluzione Problemi
 
-### Extension not working on page
-- Refresh the page after installing the extension
-- Check that you're on a supported website
-- Ensure the page has fully loaded
+### L'estensione non funziona sulla pagina
+- Ricarica la pagina dopo aver installato l'estensione
+- Verifica di essere su un sito web supportato
+- Assicurati che la pagina sia completamente caricata
 
-### Download fails
-- Check your internet connection
-- Try downloading fewer images at once
-- Check browser console for error messages
+### Il download fallisce
+- Controlla la connessione internet
+- Prova a scaricare meno immagini alla volta
+- Controlla la console del browser per messaggi di errore
 
-### Translations not working
-- Verify your DeepSeek API key is correct
-- Check that you have API credits remaining
-- Ensure the API key has proper permissions
+### Le traduzioni non funzionano
+- Verifica che la chiave API DeepSeek sia corretta
+- Controlla di avere crediti API rimanenti
+- Assicurati che la chiave API abbia i permessi corretti
 
-### ZIP file is empty
-- Some images may be protected or unavailable
-- Try refreshing the page and downloading again
+### Il file ZIP è vuoto
+- Alcune immagini potrebbero essere protette o non disponibili
+- Prova a ricaricare la pagina e scaricare di nuovo
 
 ## Privacy
 
-This extension:
-- Only accesses data on supported auction websites
-- Stores settings locally in your browser
-- Sends vehicle descriptions to DeepSeek API only when translation is enabled
-- Does not collect or transmit any personal data
+Questa estensione:
+- Accede ai dati solo sui siti di aste supportati
+- Memorizza le impostazioni localmente nel browser
+- Invia le descrizioni dei veicoli all'API DeepSeek solo quando la traduzione è abilitata
+- Non raccoglie né trasmette dati personali
 
-## License
+## Licenza
 
-MIT License - See LICENSE file for details
+Licenza MIT - Vedi file LICENSE per i dettagli
 
-## Contributing
+## Contribuire
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+I contributi sono benvenuti! Sentiti libero di inviare una Pull Request.
 
 ## Changelog
 
 ### v2.0.0
-- Initial Chrome release (converted from Firefox)
-- Chrome Manifest V3 support
-- Real-time progress bar during downloads
-- Improved German-Italian translation
-- YOLO server integration for image processing
-- Multi-language description generation
+- Prima release per Chrome (convertita da Firefox)
+- Supporto Chrome Manifest V3
+- Barra di progresso in tempo reale durante i download
+- Traduzione tedesco-italiano migliorata
+- Integrazione server YOLO per elaborazione immagini
+- Generazione descrizioni multi-lingua
